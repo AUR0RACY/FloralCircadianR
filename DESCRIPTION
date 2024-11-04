@@ -1,0 +1,34 @@
+Package: FloralCircadianR
+Type: Package
+Title: Flowering Plants Circadian Rhythms Analysis and Visualization Toolkit
+Version: 0.1.0
+Authors@R: person("Yue", "Chen", 
+                  email = "aurorayue.chen@mail.utoronto.ca", 
+                  role = c("aut", "cre"),
+                  comment = c(ORCID = "0000-0001-9292-1920"))
+Maintainer: Yue Chen <aurorayue.chen@mail.utoronto.ca>
+Description: FloralCircadianR is an R package designed for analyzing 
+    and visualizing the circadian rhythms of flowering plants, 
+    including distribution, bloom times, closure times, and their 
+    interactions with pollinators.
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.1.0)
+biocViews:
+Remotes: github::hadley/ggplot2
+Imports: 
+    ggplot2,
+    dplyr,
+    BIEN,
+    Rgbif
+License: MIT + file LICENSE
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown,
+    RTCGA.rnaseq
+VignetteBuilder: knitr
+URL: https://github.com/AUR0RACY/FloralCircadianR
+BugReports: https://github.com/AUR0RACY/FloralCircadianR/issues
