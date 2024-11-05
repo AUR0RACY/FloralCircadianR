@@ -67,7 +67,7 @@ and tools mentioned under ‘Contributions’, in one format.
 
 This package was developed as part of an assessment for 2024 BCB410H:
 Applied Bioinformatics course at the University of Toronto, Toronto,
-CANADA. `TestingPackage` welcomes issues, enhancement requests, and
+CANADA. `FloralCircadianR` welcomes issues, enhancement requests, and
 other contributions. To submit an issue, use the [GitHub
 issues](https://github.com/AUR0RACY/FloralCircadianR/issues). Many
 thanks to those who provided feedback to improve this package.
