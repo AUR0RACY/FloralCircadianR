@@ -16,7 +16,7 @@ Bioinformatics](https://artsci.calendar.utoronto.ca/course/bcb410h1)
 during the Fall 2024 semester at the University of Toronto.
 
 The `FloralCircadianR` package was developed using
-`R version 4.2.2 (2024-02-29)`,
+`R version 4.2.2 (2022-10-31)`,
 `Platform: x86_64-w64-mingw32/x64 (64-bit)` and
 `Running under: Microsoft Windows 11 23H2`.
 
