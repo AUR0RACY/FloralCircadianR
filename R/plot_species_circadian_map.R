@@ -13,7 +13,7 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-plot_species_count_map <- function(country_circadian_data) {
+plot_species_circadian_map <- function(country_circadian_data) {
   
   world_map <- map_data("world")
   
