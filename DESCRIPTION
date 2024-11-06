@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person("Yue", "Chen", 
                   email = "aurorayue.chen@mail.utoronto.ca", 
                   role = c("aut", "cre"),
-                  comment = c(ORCID = "0000-0001-9292-1920"))
+                  comment = c(ORCID = "0009-0004-5659-6947"))
 Maintainer: Yue Chen <aurorayue.chen@mail.utoronto.ca>
 Description: FloralCircadianR is an R package designed for analyzing 
     and visualizing the circadian rhythms of flowering plants, 
@@ -19,16 +19,14 @@ Remotes: github::hadley/ggplot2
 Imports: 
     ggplot2,
     dplyr,
-    BIEN,
-    Rgbif
+    BIEN
 License: MIT + file LICENSE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: 
     testthat,
     knitr,
-    rmarkdown,
-    RTCGA.rnaseq
+    rmarkdown
 VignetteBuilder: knitr
 URL: https://github.com/AUR0RACY/FloralCircadianR
 BugReports: https://github.com/AUR0RACY/FloralCircadianR/issues
