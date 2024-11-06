@@ -20,12 +20,11 @@ plot_species_circadian_map <- function(country_circadian_data) {
   # Plot the world map with circadian patterns
   ggplot() +
 
-    geom_map(data = world_map, map = world_map,
-             aes(x = long, y = lat, map_id = region),
-             color = "gray70", fill = "white") +
+    geom_polygon(data = world_map, aes(x = long, y = lat, group = group),
+                 fill = "white", color = "gray70") +
     
     # Fill countries based on circadian pattern
-    geom_map(data = country_circadian_pattern, map = world_map,
+    geom_map(data = country_circadian_data, map = world_map,
              aes(map_id = country, fill = predominant_clock),
              color = "gray50") +
     
