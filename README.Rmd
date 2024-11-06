@@ -28,26 +28,19 @@ The `FloralCircadianR` package was developed using `R version 4.2.2 (2022-10-31)
 
 To install the latest development version of FloralCircadianR, run the following code in R:
 
-```{r}
+```r
 install.packages("devtools")
 library("devtools")
 devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
 library("FloralCircadianR")
 ```
 
-To run the Shiny app:
-
-```{r}
-runFloralCircadianR()
-``` 
-
 ## Overview
 
 Provide the following commands, customized to your R package. Then provide a list of user accessible functions within the package and a brief description of each. Include one image illustrating the overview of the package that shows the inputs and outputs. Ensure the image is deposited in the correct location, as discussed in class. Point the user to vignettes for a tutorial of your package.
 
 The overview for `FloralCircadianR` package:
-
-``` {r}
+```r
 ls("package:FloralCircadianR")
 data(package = "FloralCircadianR") 
 browseVignettes("FloralCircadianR")
@@ -71,7 +64,7 @@ In addition, the helper functions for the two main functions are also provided:
 
 ## Example
 
-```{r}
+```r
 library(FloralCircadianR)
 
 # Read in the circadian data of the plant you are interested, and the countries you are interested.

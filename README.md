@@ -26,34 +26,8 @@ To install the latest development version of FloralCircadianR, run the
 following code in R:
 
     install.packages("devtools")
-    #> Error in install.packages : Updating loaded packages
     library("devtools")
     devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
-    #> Using GitHub PAT from the git credential store.
-    #> Downloading GitHub repo AUR0RACY/FloralCircadianR@HEAD
-    #> These packages have more recent versions available.
-    #> It is recommended to update all of them.
-    #> Which would you like to update?
-    #> 
-    #> 1: All                                      
-    #> 2: CRAN packages only                       
-    #> 3: None                                     
-    #> 4: ggplot2 (3.5.1  -> e594b49fd...) [GitHub]
-    #> 5: Rcpp    (1.0.13 -> 1.0.13-1    ) [CRAN]  
-    #> 6: withr   (3.0.1  -> 3.0.2       ) [CRAN]  
-    #> 7: gtable  (0.3.5  -> 0.3.6       ) [CRAN]  
-    #> 
-    #> ── R CMD build ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    #>          checking for file 'C:\Users\aoao\AppData\Local\Temp\Rtmpgrnl5V\remotes39701cc14d4\AUR0RACY-FloralCircadianR-d877fcf/DESCRIPTION' ...     checking for file 'C:\Users\aoao\AppData\Local\Temp\Rtmpgrnl5V\remotes39701cc14d4\AUR0RACY-FloralCircadianR-d877fcf/DESCRIPTION' ...   ✔  checking for file 'C:\Users\aoao\AppData\Local\Temp\Rtmpgrnl5V\remotes39701cc14d4\AUR0RACY-FloralCircadianR-d877fcf/DESCRIPTION'
-    #>       ─  preparing 'FloralCircadianR':
-    #>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
-    #>       ─  checking for LF line-endings in source and make files and shell scripts
-    #>   ─  checking for empty or unneeded directories
-    #>   ─  creating default NAMESPACE file
-    #> ─  building 'FloralCircadianR_0.1.0.tar.gz'
-    #>      
-    #> 
-    #> Warning: package 'FloralCircadianR' is in use and will not be installed
     library("FloralCircadianR")
 
 ## Overview
@@ -68,11 +42,8 @@ to vignettes for a tutorial of your package.
 The overview for `FloralCircadianR` package:
 
     ls("package:FloralCircadianR")
-    #> [1] "fetch_species_for_countries"    "find_country_circadian_pattern" "plot_species_circadian_map"     "plot_species_count_map"        
-    #> [5] "read_interested_countries"      "read_plant_circadian_data"      "test_circadian"                 "test_country_list"
     data(package = "FloralCircadianR") 
     browseVignettes("FloralCircadianR")
-    #> No vignettes found by browseVignettes("FloralCircadianR")
 
 `FloralCircadianR` provides the following main functions for now:
 
@@ -118,18 +89,12 @@ provided:
 
     # You can plot the total number of species be found in every different country
     plot_species_count_map(all_species)
-    #> Warning in geom_map(data = world_map, map = world_map, aes(x = long, y = lat, : Ignoring unknown aesthetics: x and y
-
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
-
 
     # You can find the predominant circadian pattern in each country
     predominant <- find_country_circadian_pattern(all_species, example_circadian)
 
     # You can also plot country's dominant circadian pattern
     plot_species_circadian_map(predominant)
-
-<img src="man/figures/README-unnamed-chunk-4-2.png" width="100%" />
 
 ## Contributions
 
