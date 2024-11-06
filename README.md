@@ -89,14 +89,17 @@ provided:
 
     # You can plot the total number of species be found in every different country
     plot_species_count_map(all_species)
-    ![](inst/extdata/count_map.png)
+
+![](inst/extdata/count_map.png)
+
 
     # You can find the predominant circadian pattern in each country
     predominant <- find_country_circadian_pattern(all_species, example_circadian)
 
     # You can also plot country's dominant circadian pattern
     plot_species_circadian_map(predominant)
-    ![](inst/extdata/circadian_map.png)
+
+![](inst/extdata/circadian_map.png)
 
 ## Contributions
 
