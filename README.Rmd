@@ -28,7 +28,7 @@ The `FloralCircadianR` package was developed using `R version 4.2.2 (2022-10-31)
 
 To install the latest development version of FloralCircadianR, run the following code in R:
 
-```r
+```{r}
 install.packages("devtools")
 library("devtools")
 devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
@@ -37,13 +37,9 @@ library("FloralCircadianR")
 
 To run the Shiny app:
 
-```r
+```{r}
 runFloralCircadianR()
 ``` 
-
-## Example
-
-An example use of FloralCircadianR...
 
 ## Overview
 
@@ -51,7 +47,7 @@ Provide the following commands, customized to your R package. Then provide a lis
 
 The overview for `FloralCircadianR` package:
 
-``` r
+``` {r}
 ls("package:FloralCircadianR")
 data(package = "FloralCircadianR") 
 browseVignettes("FloralCircadianR")
@@ -72,6 +68,29 @@ In addition, the helper functions for the two main functions are also provided:
 - `read_interested_country.R`: This function reads a CSV file containing a list of countries of interest.
 
 - `read_plant_data.R`: This function reads a CSV file containing plant species and their circadian clock properties.
+
+## Example
+
+```{r}
+library(FloralCircadianR)
+
+# Read in the circadian data of the plant you are interested, and the countries you are interested.
+
+example_circadian <- read_plant_circadian_data("~/FloralCircadianR/data/test_circadian.csv")
+example_country <- read_interested_countries("~/FloralCircadianR/data/test_country_list.csv")
+# Fetch all the species that can be found in your interested country
+all_species <- fetch_species_for_countries(example_country)
+
+# You can plot the total number of species be found in every different country
+plot_species_count_map(all_species)
+
+# You can find the predominant circadian pattern in each country
+predominant <- find_country_circadian_pattern(all_species, example_circadian)
+
+# You can also plot country's dominant circadian pattern
+plot_species_circadian_map(predominant)
+
+```
 
 ## Contributions
 
