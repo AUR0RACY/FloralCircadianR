@@ -47,12 +47,12 @@ The overview for `FloralCircadianR` package:
 
 `FloralCircadianR` provides the following main functions for now:
 
--   `plot_species_circadian_map`: This function takes a data frame with
-    country and circadian information, and plots it on a world map. Each
-    country is colored based on diurnal/nocturnal patterns, with yellow
-    indicating diurnal and blue indicating nocturnal.
+-   `plot_species_circadian_map()`: This function takes a data frame
+    with country and circadian information, and plots it on a world map.
+    Each country is colored based on diurnal/nocturnal patterns, with
+    yellow indicating diurnal and blue indicating nocturnal.
 
--   `plot_species_count_map`: This function takes a data frame with
+-   `plot_species_count_map()`: This function takes a data frame with
     country and species information, aggregates the species count per
     country, and plots it on a world map. Each country is colored based
     on the number of species found, with blue indicating fewer species
@@ -61,20 +61,20 @@ The overview for `FloralCircadianR` package:
 In addition, the helper functions for the two main functions are also
 provided:
 
--   `find_country_circadian.R`: This function calculates the predominant
-    circadian pattern (diurnal or nocturnal) for each country based on
-    the list of species found in each country and the circadian clock
-    data for each species.
+-   `find_country_circadian_pattern()`: This function calculates the
+    predominant circadian pattern (diurnal or nocturnal) for each
+    country based on the list of species found in each country and the
+    circadian clock data for each species.
 
--   `find_species_in_all_countries.R`: This function retrieves all plant
+-   `fetch_species_for_countries()`: This function retrieves all plant
     species for each country in the specified list using the BIEN
     database.
 
--   `read_interested_country.R`: This function reads a CSV file
+-   `read_interested_countries()`: This function reads a CSV file
     containing a list of countries of interest.
 
--   `read_plant_data.R`: This function reads a CSV file containing plant
-    species and their circadian clock properties.
+-   `read_plant_circadian_data()`: This function reads a CSV file
+    containing plant species and their circadian clock properties.
 
 ## Example
 
