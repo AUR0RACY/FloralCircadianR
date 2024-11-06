@@ -67,7 +67,7 @@ In addition, the helper functions for the two main functions are also provided:
 
 - `find_country_circadian.R`: This function calculates the predominant circadian pattern (diurnal or nocturnal) for each country based on the list of species found in each country and the circadian clock data for each species.
 
-- `fetch_species_for_countries.R`: This function retrieves all plant species for each country in the specified list using the BIEN database.
+- `find_species_in_all_countries.R`: This function retrieves all plant species for each country in the specified list using the BIEN database.
 
 - `read_interested_country.R`: This function reads a CSV file containing a list of countries of interest.
 
@@ -81,7 +81,7 @@ Package `dplyr` was used across functions in `FloralCircadianR` for data manipul
 
 Package `ggplot2` was used in functions `plot_species_circadian_map()` and `plot_species_count_map()` for generating the data-populated world map.
 
-Package `BIEN` was used in function `fetch_species_for_countries` for pull out the plant species in a certain country.
+Package `BIEN` was used in function `fetch_species_for_countries()` for pull out the plant species in a certain country.
 
 During the process of Development, ChatGPT was used to generate some sample test data and optimized some codes.
 

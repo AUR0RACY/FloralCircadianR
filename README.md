@@ -74,7 +74,7 @@ provided:
     the list of species found in each country and the circadian clock
     data for each species.
 
--   `fetch_species_for_countries.R`: This function retrieves all plant
+-   `find_species_in_all_countries.R`: This function retrieves all plant
     species for each country in the specified list using the BIEN
     database.
 
@@ -99,7 +99,7 @@ Package `ggplot2` was used in functions `plot_species_circadian_map()`
 and `plot_species_count_map()` for generating the data-populated world
 map.
 
-Package `BIEN` was used in function `fetch_species_for_countries` for
+Package `BIEN` was used in function `fetch_species_for_countries()` for
 pull out the plant species in a certain country.
 
 During the process of Development, ChatGPT was used to generate some
