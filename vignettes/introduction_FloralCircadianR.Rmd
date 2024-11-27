@@ -1,8 +1,8 @@
 ---
-title: "introduction_FloralCircadianR"
+title: "Introduction to FloralCircadianR"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{introduction_FloralCircadianR}
+  %\VignetteIndexEntry{Introduction to FloralCircadianR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,10 +10,127 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 6, fig.height = 4.5,
+  fig.align = "center",
+  warning = FALSE,
+  message = FALSE
 )
-```
-
-```{r setup}
 library(FloralCircadianR)
 ```
+## Introduction
+
+FloralCircadianR is an R package for analyzing and visualizing the circadian rhythms of flowering plants. The package allows users to:
+
+Fetch plant species data for specific countries using the BIEN database.
+Analyze and visualize the predominant circadian patterns (diurnal or nocturnal) for each country.
+Create world maps to visualize species counts and circadian patterns.
+This vignette demonstrates the workflow of FloralCircadianR and includes installation steps, core functions, and a practical example.
+
+## Installation
+
+To install the latest version of FloralCircadianR, use the following commands:
+
+```{r}
+install.packages("devtools")
+library("devtools")
+devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
+library(FloralCircadianR)
+```
+
+## Applications
+
+The main functions of the FloralCircadianR package include:
+
+1. Reading input data.
+2. Fetching and analyzing species data.
+3. Visualizing the results.
+4. Interact with data through a user-friendly Shiny app.
+
+Step 1: Read Input Data
+
+First, prepare two CSV files:
+  
+- Circadian Data: Contains species names and their circadian properties (Diurnal or Nocturnal).
+- Countries List: Contains a list of countries you are interested in.
+    
+The following functions read these files:
+```{r}
+# File paths (replace with your actual file paths)
+circadian_file <- system.file("extdata", "example_circadian.csv", package = "FloralCircadianR")
+countries_file <- system.file("extdata", "example_countries.csv", package = "FloralCircadianR")
+
+# Read the circadian data
+circadian_data <- read_plant_circadian_data(circadian_file)
+print(circadian_data)
+
+# Read the list of interested countries
+countries <- read_interested_countries(countries_file)
+print(countries)
+```
+
+Step 2: Fetch Species Data
+
+Use the fetch_species_for_countries() function to retrieve plant species data for the selected countries from the BIEN database.
+```{r}
+# Fetch species data for the selected countries
+species_data <- fetch_species_for_countries(countries)
+head(species_data)
+```
+
+Step 3: Analyze Circadian Patterns
+
+Use the find_country_circadian_pattern() function to determine the predominant circadian patterns for each country.
+
+```{r}
+# Analyze the predominant circadian patterns
+country_circadian <- find_country_circadian_pattern(species_data, circadian_data)
+print(country_circadian)
+```
+
+Step 4: Visualize the Results
+
+Plot Species Count by Country
+The plot_species_count_map() function creates a map showing the number of species found in each country. Countries are colored on a gradient from blue (fewer species) to red (more species).
+
+```{r}
+species_count_plot <- plot_species_count_map(species_data)
+print(species_count_plot)
+```
+Plot Predominant Circadian Patterns
+The plot_species_circadian_map() function creates a map showing the predominant circadian patterns in each country. Countries are colored yellow for "Diurnal" and blue for "Nocturnal."
+
+```{r}
+circadian_map <- plot_species_circadian_map(country_circadian)
+print(circadian_map)
+```
+
+Step 5: Using the Shiny App
+Launch the Shiny app to interact with the package:
+
+```{r}
+FloralCircadianR::runFloralCircadianR()
+```
+In the app:
+
+1. Upload a CSV file containing the circadian data (scrubbed_species_binomial, circadian_clock).
+2. Enter a list of countries of interest.
+3. View and download visualizations for species count and circadian patterns.
+
+The Shiny app provides a user-friendly interface for exploring circadian data.
+
+## References
+
+1. anjalisilva. (2019). GitHub - anjalisilva/TestingPackage: R Package Illustrating Components of an R package for BCB410H - Applied Bioinformatics (2019-2023), University of Toronto, Canada. GitHub. https://github.com/anjalisilva/TestingPackage
+
+2. OpenAI. (2024). ChatGPT. ChatGPT; OpenAI. https://chatgpt.com/
+
+3. R Core Team (2023). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/
+
+4. RBIEN – Botanical Information and Ecology Network. (2024). Ucsb.edu. https://bien.nceas.ucsb.edu/bien/tools/rbien/
+
+5. Wickham, H. (2019). Create Elegant Data Visualisations Using the Grammar of Graphics. Tidyverse.org. https://ggplot2.tidyverse.org/
+
+6. Wickham, H., François, R., Henry, L., Müller, K., & Vaughan, D. (2019). A Grammar of Data Manipulation. Tidyverse.org. https://dplyr.tidyverse.org/
+
+7. Chang, W., Cheng, J., Allaire, J., Xie, Y., & McPherson, J. (2024). Shiny: Web Application Framework for R. R package version 1.9.1. https://CRAN.R-project.org/package=shiny

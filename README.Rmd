@@ -35,6 +35,11 @@ devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
 library("FloralCircadianR")
 ```
 
+To run shiny app:
+```r
+FloralCircadianR::runFloralCircadianR()
+```
+
 ## Overview
 
 Provide the following commands, customized to your R package. Then provide a list of user accessible functions within the package and a brief description of each. Include one image illustrating the overview of the package that shows the inputs and outputs. Ensure the image is deposited in the correct location, as discussed in class. Point the user to vignettes for a tutorial of your package.

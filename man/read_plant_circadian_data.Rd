@@ -10,7 +10,11 @@ read_plant_circadian_data(file_path)
 \item{file_path}{The path to the CSV file with plant circadian data.}
 }
 \value{
-A data frame with columns \code{species} and \code{circadian_clock}(nocturnal/diurnal).
+A data frame with columns:
+\itemize{
+\item \code{scrubbed_species_binomial}: The scientific name of each species.
+\item \code{circadian_clock}: The circadian property of each species ("Diurnal" or "Nocturnal").
+}.
 }
 \description{
 This function reads a CSV file containing plant species and their circadian clock properties.

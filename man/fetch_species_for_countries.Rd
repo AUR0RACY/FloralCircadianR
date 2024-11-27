@@ -10,10 +10,17 @@ fetch_species_for_countries(country_list)
 \item{country_list}{A character vector of country names.}
 }
 \value{
-A data frame with columns \code{country} and \code{species}, containing all plant species
-found in each country.
+A data frame with columns:
+\item{country}{The name of the country.}
+\item{scrubbed_species_binomial}{The scientific name of each species found.}
 }
 \description{
 This function retrieves all plant species for each country in the specified list
 using the BIEN database.
+}
+\examples{
+\dontrun{
+countries <- c("Canada", "Brazil")
+species_data <- fetch_species_for_countries(countries)
+}
 }

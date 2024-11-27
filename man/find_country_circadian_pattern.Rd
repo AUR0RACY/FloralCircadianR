@@ -14,11 +14,21 @@ Each row represents a species found in a country.}
 where \code{circadian_clock} indicates whether the species is "Diurnal" or "Nocturnal".}
 }
 \value{
-A data frame with columns \code{country} and \code{predominant_clock}, indicating
-the predominant circadian pattern for each country.
+A data frame with columns:
+\item{country}{The name of the country.}
+\item{predominant_clock}{The predominant circadian pattern ("Diurnal" or "Nocturnal").}
 }
 \description{
 This function calculates the predominant circadian pattern (diurnal or nocturnal)
 for each country based on the list of species found in each country and the circadian
 clock data for each species.
+}
+\examples{
+\dontrun{
+country_species_data <- data.frame(country = c("USA", "Canada", "USA"),
+                                   scrubbed_species_binomial = c("Species1", "Species2", "Species3"))
+circadian_data <- data.frame(scrubbed_species_binomial = c("Species1", "Species2", "Species3"),
+                             circadian_clock = c("Diurnal", "Nocturnal", "Diurnal"))
+find_country_circadian_pattern(country_species_data, circadian_data)
+}
 }

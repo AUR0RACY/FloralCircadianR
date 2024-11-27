@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # FloralCircadianR
@@ -25,10 +26,18 @@ The `FloralCircadianR` package was developed using
 To install the latest development version of FloralCircadianR, run the
 following code in R:
 
-    install.packages("devtools")
-    library("devtools")
-    devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
-    library("FloralCircadianR")
+``` r
+install.packages("devtools")
+library("devtools")
+devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
+library("FloralCircadianR")
+```
+
+To run shiny app:
+
+``` r
+FloralCircadianR::runFloralCircadianR()
+```
 
 ## Overview
 
@@ -41,63 +50,69 @@ to vignettes for a tutorial of your package.
 
 The overview for `FloralCircadianR` package:
 
-    ls("package:FloralCircadianR")
-    data(package = "FloralCircadianR") 
-    browseVignettes("FloralCircadianR")
+``` r
+ls("package:FloralCircadianR")
+data(package = "FloralCircadianR") 
+browseVignettes("FloralCircadianR")
+```
 
 `FloralCircadianR` provides the following main functions for now:
 
--   `plot_species_circadian_map()`: This function takes a data frame
-    with country and circadian information, and plots it on a world map.
-    Each country is colored based on diurnal/nocturnal patterns, with
-    yellow indicating diurnal and blue indicating nocturnal.
+- `plot_species_circadian_map()`: This function takes a data frame with
+  country and circadian information, and plots it on a world map. Each
+  country is colored based on diurnal/nocturnal patterns, with yellow
+  indicating diurnal and blue indicating nocturnal.
 
--   `plot_species_count_map()`: This function takes a data frame with
-    country and species information, aggregates the species count per
-    country, and plots it on a world map. Each country is colored based
-    on the number of species found, with blue indicating fewer species
-    and red indicating more species.
+- `plot_species_count_map()`: This function takes a data frame with
+  country and species information, aggregates the species count per
+  country, and plots it on a world map. Each country is colored based on
+  the number of species found, with blue indicating fewer species and
+  red indicating more species.
 
 In addition, the helper functions for the two main functions are also
 provided:
 
--   `find_country_circadian_pattern()`: This function calculates the
-    predominant circadian pattern (diurnal or nocturnal) for each
-    country based on the list of species found in each country and the
-    circadian clock data for each species.
+- `find_country_circadian_pattern()`: This function calculates the
+  predominant circadian pattern (diurnal or nocturnal) for each country
+  based on the list of species found in each country and the circadian
+  clock data for each species.
 
--   `fetch_species_for_countries()`: This function retrieves all plant
-    species for each country in the specified list using the BIEN
-    database.
+- `fetch_species_for_countries()`: This function retrieves all plant
+  species for each country in the specified list using the BIEN
+  database.
 
--   `read_interested_countries()`: This function reads a CSV file
-    containing a list of countries of interest.
+- `read_interested_countries()`: This function reads a CSV file
+  containing a list of countries of interest.
 
--   `read_plant_circadian_data()`: This function reads a CSV file
-    containing plant species and their circadian clock properties.
+- `read_plant_circadian_data()`: This function reads a CSV file
+  containing plant species and their circadian clock properties.
 
 ## Example
 
-    library(FloralCircadianR)
+``` r
+library(FloralCircadianR)
 
-    # Read in the circadian data of the plant you are interested, and the countries you are interested.
+# Read in the circadian data of the plant you are interested, and the countries you are interested.
 
-    example_circadian <- read_plant_circadian_data("~/FloralCircadianR/data/test_circadian.csv")
-    example_country <- read_interested_countries("~/FloralCircadianR/data/test_country_list.csv")
-    # Fetch all the species that can be found in your interested country
-    all_species <- fetch_species_for_countries(example_country)
+example_circadian <- read_plant_circadian_data("~/FloralCircadianR/data/test_circadian.csv")
+example_country <- read_interested_countries("~/FloralCircadianR/data/test_country_list.csv")
+# Fetch all the species that can be found in your interested country
+all_species <- fetch_species_for_countries(example_country)
 
-    # You can plot the total number of species be found in every different country
-    plot_species_count_map(all_species)
+# You can plot the total number of species be found in every different country
+plot_species_count_map(all_species)
+```
 
 ![](inst/extdata/count_map.png)
 
+``` r
 
-    # You can find the predominant circadian pattern in each country
-    predominant <- find_country_circadian_pattern(all_species, example_circadian)
+# You can find the predominant circadian pattern in each country
+predominant <- find_country_circadian_pattern(all_species, example_circadian)
 
-    # You can also plot country's dominant circadian pattern
-    plot_species_circadian_map(predominant)
+# You can also plot country's dominant circadian pattern
+plot_species_circadian_map(predominant)
+```
 
 ![](inst/extdata/circadian_map.png)
 
@@ -124,26 +139,26 @@ sample test data and optimized some codes.
 
 ## References
 
--   anjalisilva. (2019). GitHub - anjalisilva/TestingPackage: R Package
-    Illustrating Components of an R package for BCB410H - Applied
-    Bioinformatics (2019-2023), University of Toronto, Canada. GitHub.
-    <https://github.com/anjalisilva/TestingPackage>
+- anjalisilva. (2019). GitHub - anjalisilva/TestingPackage: R Package
+  Illustrating Components of an R package for BCB410H - Applied
+  Bioinformatics (2019-2023), University of Toronto, Canada. GitHub.
+  <https://github.com/anjalisilva/TestingPackage>
 
--   OpenAI. (2024). ChatGPT. ChatGPT; OpenAI. <https://chatgpt.com/>
+- OpenAI. (2024). ChatGPT. ChatGPT; OpenAI. <https://chatgpt.com/>
 
--   R Core Team (2023). R: A language and environment for statistical
-    computing. R Foundation for Statistical Computing, Vienna, Austria.
-    <https://www.R-project.org/>
+- R Core Team (2023). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria.
+  <https://www.R-project.org/>
 
--   RBIEN – Botanical Information and Ecology Network. (2024). Ucsb.edu.
-    <https://bien.nceas.ucsb.edu/bien/tools/rbien/>
+- RBIEN – Botanical Information and Ecology Network. (2024). Ucsb.edu.
+  <https://bien.nceas.ucsb.edu/bien/tools/rbien/>
 
--   Wickham, H. (2019). Create Elegant Data Visualisations Using the
-    Grammar of Graphics. Tidyverse.org. <https://ggplot2.tidyverse.org/>
+- Wickham, H. (2019). Create Elegant Data Visualisations Using the
+  Grammar of Graphics. Tidyverse.org. <https://ggplot2.tidyverse.org/>
 
--   Wickham, H., François, R., Henry, L., Müller, K., & Vaughan, D.
-    (2019). A Grammar of Data Manipulation. Tidyverse.org.
-    <https://dplyr.tidyverse.org/>
+- Wickham, H., François, R., Henry, L., Müller, K., & Vaughan, D.
+  (2019). A Grammar of Data Manipulation. Tidyverse.org.
+  <https://dplyr.tidyverse.org/>
 
 ## Acknowledgements
 

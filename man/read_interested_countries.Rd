@@ -15,3 +15,9 @@ A character vector of country names.
 \description{
 This function reads a CSV file containing a list of countries of interest.
 }
+\examples{
+\dontrun{
+country_list <- read_interested_countries("data/test_country_list.csv")
+print(country_list)
+}
+}
