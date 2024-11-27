@@ -160,6 +160,10 @@ sample test data and optimized some codes.
   (2019). A Grammar of Data Manipulation. Tidyverse.org.
   <https://dplyr.tidyverse.org/>
 
+- Chang, W., Cheng, J., Allaire, J., Xie, Y., & McPherson, J. (2024).
+  Shiny: Web Application Framework for R. R package version 1.9.1.
+  <https://CRAN.R-project.org/package=shiny>
+
 ## Acknowledgements
 
 This package was developed as part of an assessment for 2024 BCB410H:
