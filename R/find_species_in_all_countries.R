@@ -8,18 +8,22 @@
 #' @import BIEN
 #' @export
 fetch_species_for_countries <- function(country_list) {
-# Initialize an empty list to hold data for each country
-all_data <- lapply(country_list, function(country) {
-  # Retrieve species data for the current country
-  species_data <- BIEN::BIEN_list_country(country)
   
-  # Add a 'country' column to keep track of each country's species
-  species_data$country <- country
+  # Initialize an empty list to hold data for each country
+  all_data <- lapply(country_list, function(country) {
+    # Retrieve species data for the current country
+    species_data <- BIEN::BIEN_list_country(country)
+    # Check if the retrieved data is empty
+    if (is.null(species_data) || nrow(species_data) == 0) {
+      stop(paste("No data found for country:", country))
+    }
   
-  return(species_data)
-})
-
-# Combine all country data into one data frame
-combined_data <- do.call(rbind, all_data)
-return(combined_data)
+    # Add a 'country' column to keep track of each country's species
+    species_data$country <- country
+  
+    return(species_data)
+  })
+  # Combine all country data into one data frame
+  combined_data <- do.call(rbind, all_data)
+  return(combined_data)
 }
