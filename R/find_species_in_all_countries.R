@@ -3,9 +3,16 @@
 #' This function retrieves all plant species for each country in the specified list
 #' using the BIEN database.
 #' @param country_list A character vector of country names.
-#' @return A data frame with columns `country` and `species`, containing all plant species
-#'         found in each country.
+#' @return A data frame with columns:
+#'         \item{country}{The name of the country.}
+#'         \item{scrubbed_species_binomial}{The scientific name of each species found.}
 #' @import BIEN
+#' @import dplyr
+#' @examples
+#' \dontrun{
+#' countries <- c("Canada", "Brazil")
+#' species_data <- fetch_species_for_countries(countries)
+#' }
 #' @export
 fetch_species_for_countries <- function(country_list) {
   

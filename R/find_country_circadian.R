@@ -8,11 +8,28 @@
 #'        Each row represents a species found in a country.
 #' @param circadian_data A data frame with columns `species` and `circadian_clock`,
 #'        where `circadian_clock` indicates whether the species is "Diurnal" or "Nocturnal".
-#' @return A data frame with columns `country` and `predominant_clock`, indicating
-#'         the predominant circadian pattern for each country.
+#' @return A data frame with columns:
+#'         \item{country}{The name of the country.}
+#'         \item{predominant_clock}{The predominant circadian pattern ("Diurnal" or "Nocturnal").}
+#' @examples
+#' \dontrun{
+#' country_species_data <- data.frame(country = c("USA", "Canada", "USA"),
+#'                                    scrubbed_species_binomial = c("Species1", "Species2", "Species3"))
+#' circadian_data <- data.frame(scrubbed_species_binomial = c("Species1", "Species2", "Species3"),
+#'                              circadian_clock = c("Diurnal", "Nocturnal", "Diurnal"))
+#' find_country_circadian_pattern(country_species_data, circadian_data)
+#' }
 #' @import dplyr
 #' @export
 find_country_circadian_pattern <- function(country_species_data, circadian_data) {
+  
+  # Ensure that all inputs are valid
+  if (!all(c("country", "scrubbed_species_binomial") %in% colnames(country_species_data))) {
+    stop("Error: 'country_species_data' must contain columns 'country' and 'scrubbed_species_binomial'.")
+  }
+  if (!all(c("scrubbed_species_binomial", "circadian_clock") %in% colnames(circadian_data))) {
+    stop("Error: 'circadian_data' must contain columns 'scrubbed_species_binomial' and 'circadian_clock'.")
+  }
   
   merged_data <- country_species_data %>%
     left_join(circadian_data, by = "scrubbed_species_binomial")

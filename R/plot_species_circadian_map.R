@@ -6,14 +6,32 @@
 #' indicating nocturnal and yellow indicating diurnal.
 #'
 #' @param country_circadian_data A data frame with at least two columns: 
-#'        'country' and 'predominant_clock'. 'country' should be the name of the 
-#'        country, and 'predominant_clock' should be the circadian pattern.
+#'        \itemize{
+#'          \item `country`: The name of the country.
+#'          \item `predominant_clock`: The predominant circadian pattern ("Diurnal" or "Nocturnal").
+#'        }
 #' @return A ggplot object displaying a world map with countries colored 
 #'         by species count.
+#' @details This function overlays circadian pattern information onto a 
+#'          world map using ggplot2. Countries without circadian pattern data 
+#'          are displayed in white.
 #' @import dplyr
 #' @import ggplot2
+#' @examples
+#' \dontrun{
+#' circadian_data <- data.frame(
+#'   country = c("China", "Canada", "Brazil"),
+#'   predominant_clock = c("Diurnal", "Nocturnal", "Diurnal")
+#' )
+#' plot_species_circadian_map(circadian_data)
+#' }
 #' @export
 plot_species_circadian_map <- function(country_circadian_data) {
+  
+  # Ensure that all input data is valid
+  if (!all(c("country", "predominant_clock") %in% colnames(country_circadian_data))) {
+    stop("Error: 'country_circadian_data' must contain columns 'country' and 'predominant_clock'.")
+  }
   
   world_map <- map_data("world")
   

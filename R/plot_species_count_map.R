@@ -6,14 +6,32 @@
 #' indicating fewer species and red indicating more species.
 #'
 #' @param country_species_data A data frame with at least two columns: 
-#'        'country' and 'species'. 'country' should be the name of the 
-#'        country, and 'species' should be the name of the plant species.
+#'        \itemize{
+#'          \item `country`: The name of the country.
+#'          \item `scrubbed_species_binomial`: The scientific name of each species.
+#'        }
 #' @return A ggplot object displaying a world map with countries colored 
 #'         by species count.
+#' @details This function computes the number of unique species (`scrubbed_species_binomial`) 
+#'          for each country and plots the data on a world map using a color gradient.
+#'          Countries without any data are displayed in white.
+#' @examples
+#' \dontrun{
+#' country_species_data <- data.frame(
+#'   country = c("China", "Canada", "Brazil"),
+#'   scrubbed_species_binomial = c("Species1", "Species2", "Species3")
+#' )
+#' plot_species_count_map(country_species_data)
+#' }
 #' @import dplyr
 #' @import ggplot2
 #' @export
 plot_species_count_map <- function(country_species_data) {
+  
+  # Check if the input data is valid
+  if (!all(c("country", "scrubbed_species_binomial") %in% colnames(country_species_data))) {
+    stop("Error: 'country_species_data' must contain columns 'country' and 'scrubbed_species_binomial'.")
+  }
   
   species_count_by_country <- country_species_data %>%
     dplyr::group_by(country) %>%
