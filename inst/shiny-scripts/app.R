@@ -4,12 +4,12 @@ library(dplyr)
 library(ggplot2)
 
 # Load FloralCircadianR functions
-source(system.file("R", "read_plant_data.R", package = "FloralCircadianR"))
-source(system.file("R", "read_interested_country.R", package = "FloralCircadianR"))
-source(system.file("R", "plot_species_count_map.R", package = "FloralCircadianR"))
-source(system.file("R", "plot_species_circadian_map.R", package = "FloralCircadianR"))
-source(system.file("R", "find_species_in_all_countries.R", package = "FloralCircadianR"))
-source(system.file("R", "find_country_circadian.R", package = "FloralCircadianR"))
+source("R/read_plant_data.R")
+source("R/read_interested_country.R")
+source("R/plot_species_count_map.R")
+source("R/plot_species_circadian_map.R")
+source("R/find_species_in_all_countries.R")
+source("R/find_country_circadian.R")
 
 # Define UI page
 ui <- fluidPage(
