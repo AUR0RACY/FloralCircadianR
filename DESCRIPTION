@@ -16,11 +16,12 @@ LazyData: true
 Depends: R (>= 3.1.0)
 biocViews:
 Remotes: github::hadley/ggplot2
-Imports: 
-    ggplot2,
-    dplyr,
-    BIEN,
-    shiny
+Imports:
+  ggplot2,
+  dplyr,
+  shiny,
+  BIEN,
+  rmarkdown
 License: MIT + file LICENSE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
