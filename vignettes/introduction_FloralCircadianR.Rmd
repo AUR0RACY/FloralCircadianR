@@ -17,6 +17,10 @@ knitr::opts_chunk$set(
   message = FALSE
 )
 library(FloralCircadianR)
+library(ggplot2)
+library(dplyr)
+library(shiny)
+library(BIEN)
 ```
 ## Introduction
 
@@ -56,16 +60,13 @@ First, prepare two CSV files:
     
 The following functions read these files:
 ```{r}
-# File paths (replace with your actual file paths)
-circadian_file <- system.file("extdata", "example_circadian.csv", package = "FloralCircadianR")
-countries_file <- system.file("extdata", "example_countries.csv", package = "FloralCircadianR")
-
-# Read the circadian data
-circadian_data <- read_plant_circadian_data(circadian_file)
-print(circadian_data)
-
-# Read the list of interested countries
-countries <- read_interested_countries(countries_file)
+# Example circadian data
+circadian_data <- data.frame(
+  scrubbed_species_binomial = c("Rosa", "Mangifera indica", "Betula papyrifera", "Eucalyptus globulus"),
+  circadian_clock = c("Diurnal", "Nocturnal", "Diurnal", "Nocturnal")
+)
+# Example country data
+countries <- c("Canada", "Brazil")
 print(countries)
 ```
 
@@ -74,8 +75,12 @@ Step 2: Fetch Species Data
 Use the fetch_species_for_countries() function to retrieve plant species data for the selected countries from the BIEN database.
 ```{r}
 # Fetch species data for the selected countries
-species_data <- fetch_species_for_countries(countries)
-head(species_data)
+# Simulated fetch_species_for_countries example
+species_data <- data.frame(
+  country = rep(c("Canada", "Brazil"), each = 2),
+  scrubbed_species_binomial = c("Rosa", "Mangifera indica", "Betula papyrifera", "Eucalyptus globulus")
+)
+print(species_data)
 ```
 
 Step 3: Analyze Circadian Patterns
@@ -83,8 +88,8 @@ Step 3: Analyze Circadian Patterns
 Use the find_country_circadian_pattern() function to determine the predominant circadian patterns for each country.
 
 ```{r}
-# Analyze the predominant circadian patterns
-country_circadian <- find_country_circadian_pattern(species_data, circadian_data)
+# Simulated find_country_circadian_pattern example
+country_circadian <-find_country_circadian_pattern(species_data, circadian_data)
 print(country_circadian)
 ```
 
