@@ -17,10 +17,6 @@ knitr::opts_chunk$set(
   message = FALSE
 )
 library(FloralCircadianR)
-library(ggplot2)
-library(dplyr)
-library(shiny)
-library(BIEN)
 ```
 ## Introduction
 
@@ -35,7 +31,7 @@ This vignette demonstrates the workflow of FloralCircadianR and includes install
 
 To install the latest version of FloralCircadianR, use the following commands:
 
-```{r}
+```r
 install.packages("devtools")
 library("devtools")
 devtools::install_github("AUR0RACY/FloralCircadianR", build_vignettes = TRUE)
