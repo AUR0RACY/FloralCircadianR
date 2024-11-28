@@ -55,7 +55,7 @@ First, prepare two CSV files:
 - Countries List: Contains a list of countries you are interested in.
     
 The following functions read these files:
-```{r}
+```{r, eval = FALSE}
 # Example circadian data
 circadian_data <- data.frame(
   scrubbed_species_binomial = c("Rosa", "Mangifera indica", "Betula papyrifera", "Eucalyptus globulus"),
@@ -69,7 +69,7 @@ print(countries)
 Step 2: Fetch Species Data
 
 Use the fetch_species_for_countries() function to retrieve plant species data for the selected countries from the BIEN database.
-```{r}
+```{r, eval = FALSE}
 # Fetch species data for the selected countries
 # Simulated fetch_species_for_countries example
 species_data <- data.frame(
@@ -83,7 +83,7 @@ Step 3: Analyze Circadian Patterns
 
 Use the find_country_circadian_pattern() function to determine the predominant circadian patterns for each country.
 
-```{r}
+```{r, eval = FALSE}
 # Simulated find_country_circadian_pattern example
 country_circadian <-find_country_circadian_pattern(species_data, circadian_data)
 print(country_circadian)
@@ -94,14 +94,14 @@ Step 4: Visualize the Results
 Plot Species Count by Country
 The plot_species_count_map() function creates a map showing the number of species found in each country. Countries are colored on a gradient from blue (fewer species) to red (more species).
 
-```{r}
+```{r, eval = FALSE}
 species_count_plot <- plot_species_count_map(species_data)
 print(species_count_plot)
 ```
 Plot Predominant Circadian Patterns
 The plot_species_circadian_map() function creates a map showing the predominant circadian patterns in each country. Countries are colored yellow for "Diurnal" and blue for "Nocturnal."
 
-```{r}
+```{r, eval = FALSE}
 circadian_map <- plot_species_circadian_map(country_circadian)
 print(circadian_map)
 ```
@@ -109,7 +109,7 @@ print(circadian_map)
 Step 5: Using the Shiny App
 Launch the Shiny app to interact with the package:
 
-```{r}
+```{r, eval = FALSE}
 FloralCircadianR::runFloralCircadianR()
 ```
 In the app:
