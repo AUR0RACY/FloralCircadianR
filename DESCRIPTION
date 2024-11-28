@@ -21,7 +21,8 @@ Imports:
   dplyr,
   shiny,
   BIEN,
-  rmarkdown
+  rmarkdown,
+  maps
 License: MIT + file LICENSE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
