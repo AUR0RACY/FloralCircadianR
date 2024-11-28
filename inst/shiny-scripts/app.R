@@ -2,14 +2,8 @@
 library(shiny)
 library(dplyr)
 library(ggplot2)
+library(FloralCircadianR)
 
-# Load FloralCircadianR functions
-source("R/read_plant_data.R")
-source("R/read_interested_country.R")
-source("R/plot_species_count_map.R")
-source("R/plot_species_circadian_map.R")
-source("R/find_species_in_all_countries.R")
-source("R/find_country_circadian.R")
 
 # Define UI page
 ui <- fluidPage(
